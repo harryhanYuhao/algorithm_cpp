@@ -8,20 +8,20 @@ HELP() {
 	echo -e "run.bash script for algorithm_cpp"
 	echo -e "Usage: bash run.bash [OPTIONS]"
 	echo -e "Options:" 
-	echo -e "  -h, --help, help  Display this help and exit"
-	echo -e "  -r, --run, run    Compile and run the algorithm_cpp"
-	echo -e "  -C, --compile, compile  Compile the algorithm_cpp"
-	echo -e "  -c, --clean, clean  Clean the algorithm_cpp"
+	echo -e "  -h, --help, help, h    Display this help and exit"
+	echo -e "  -r, --run, run, r      Compile and run the algorithm_cpp"
+	echo -e "  -b, --build, build, b  Build the algorithm_cpp"
+	echo -e "  -c, --clean, clean, c  Clean the algorithm_cpp"
 
 }
 
-COMPILE() {
+BUILD() {
 	cmake -S . -B build
 	cmake --build build
 }
 
 RUN() {
-	COMPILE
+	BUILD
 	echo -e "${RED}${BOLD}OUTPUT of a.out:${NOCOLOR}"
 	./build/a.out
 }
@@ -43,19 +43,19 @@ fi
 while [[ $# -gt 0 ]]; do
 	key="$1"
 	case $key in
-		-h|--help|help)
+		-h|--help|help|h)
 			HELP
 			exit 0
 			;;
-		-r|--run|run)
+		-r|--run|run|r)
 			RUN
 			exit 0
 			;;
-		-C|--compile|compile)
-			COMPILE
+		-b|--build|build|b)
+			BUILD
 			exit 0
 			;;
-		-c|--clean|clean)
+		-c|--clean|clean|c)
 			CLEAN
 			exit 0
 			;;
