@@ -2,7 +2,6 @@
 #include <iostream>
 
 std::vector<int> sort::merge_sort(std::vector<int>& input) {
-
     std::vector<int> ret; // the returned vector
     if (input.size() == 1) {
         return input;

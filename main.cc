@@ -1,14 +1,15 @@
 #include <iostream>
 
-#include "util.h"
 #include "sort/sort.h"
+#include "test_util.h"
 
 int main() {
-	std::vector<int> input = util::shuffled_vec_int(10000000);
-	util::print_vec(input);
+    std::vector<int> input = test_util::shuffled_vec_int(100);
+    test_util::print_vec(input);
 
-	std::vector<int> output = sort::merge_sort(input);
-	util::print_vec(output);
+    std::vector<int> output = sort::insertion_sort(input);
+    test_util::print_vec(output);
+    test_util::print_vec(input);
 
     return 0;
 }

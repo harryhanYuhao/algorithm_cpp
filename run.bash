@@ -31,6 +31,17 @@ CLEAN() {
 	rm -rf build
 }
 
+TEST() {
+	BUILD
+	if [ -z "$@" ]; then
+		echo -e "${RED}${BOLD}No Input: Running all tests${NOCOLOR}"
+		./build/test "*"
+		exit 0
+	fi
+	echo -e "${RED}${BOLD}OUTPUT of ./build/test ${@}: ${NOCOLOR}"
+	./build/test "$@"
+}
+
 ##############################
 ### START OF EXECUTION
 ##############################
@@ -57,6 +68,10 @@ while [[ $# -gt 0 ]]; do
 			;;
 		-c|--clean|clean|c)
 			CLEAN
+			exit 0
+			;;
+		-t|--test|test|t)
+			TEST ${@:2} # pass all arguments except the first one
 			exit 0
 			;;
 		*)
