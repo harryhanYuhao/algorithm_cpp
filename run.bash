@@ -12,6 +12,7 @@ HELP() {
 	echo -e "  -r, --run, run, r      Compile and run the algorithm_cpp"
 	echo -e "  -b, --build, build, b  Build the algorithm_cpp"
 	echo -e "  -c, --clean, clean, c  Clean the algorithm_cpp"
+	echo -e "  -t, --test, test, t [args]   Run the test cases"
 
 }
 
